@@ -8,6 +8,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { routes } from './navigations/routes-lazy-loaded-modules';
 import { NotificationPanelComponent } from './components/notification-panel/notification-panel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
 	declarations: [
@@ -17,7 +18,12 @@ import { NotificationPanelComponent } from './components/notification-panel/noti
 		ChatPanelComponent,
 		NotificationPanelComponent,
 	],
-	imports: [BrowserModule, SharedModule, RouterModule.forRoot(routes)],
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		SharedModule,
+		RouterModule.forRoot(routes),
+	],
 	exports: [],
 	providers: [],
 	bootstrap: [RootComponent],
