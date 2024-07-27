@@ -45,7 +45,7 @@
                 "input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
               }
             ],
-            "main": "src/main.ts"
+            "main": "src/entryFile.ts" 
           },
           "configurations": {
             "production": {
