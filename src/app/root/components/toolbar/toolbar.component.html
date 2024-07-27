@@ -1,1 +1,126 @@
-<p>Toolbar works</p>
+<mat-toolbar class="mat-toolbar main-toolbar mat-elevation-z2">
+	<button
+		type="button"
+		aria-label="Toggle sidenav"
+		mat-icon-button
+		(click)="toggelDrawer()"
+	>
+		<mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+	</button>
+
+	<span class="nav-spacer"></span>
+
+	<div class="nav-button-list">
+		<div
+			class="nav-icon-box"
+			matRipple
+			[matMenuTriggerFor]="dashboard"
+		>
+			<button
+				mat-icon-button
+				disableRipple
+			>
+				<mat-icon class="material-icons-outlined">dashboard</mat-icon>
+			</button>
+		</div>
+		<mat-menu #dashboard="matMenu">
+			<div class="dashboard-list">
+				<div
+					class="dashboard-box"
+					routerLink="/database"
+				>
+					<mat-icon color="primary">groups</mat-icon>
+					<div class="icon-text">Database</div>
+				</div>
+
+				<div
+					class="dashboard-box"
+					routerLink="/events"
+				>
+					<mat-icon color="primary">campaign</mat-icon>
+					<div class="icon-text">Upcoming Events</div>
+				</div>
+			</div>
+		</mat-menu>
+		<div
+			class="nav-icon-box"
+			matRipple
+			(click)="toggleNotification()"
+		>
+			<button
+				mat-icon-button
+				disableRipple
+			>
+				<mat-icon matBadgeColor="warn">notifications</mat-icon>
+			</button>
+		</div>
+		<div
+			matRipple
+			class="nav-icon-box"
+			[matMenuTriggerFor]="account"
+		>
+			<img
+				class="profile-avatar"
+				src="/images/userPhotoDefault.png"
+				alt="user profile picture"
+			/>
+		</div>
+
+		<mat-menu #account="matMenu">
+			<!-- <button mat-menu-item>
+				<mat-icon>account_circle</mat-icon>
+				<span>My account</span>
+			</button> -->
+
+			<button
+				mat-menu-item
+				(click)="handleChangePasswordClick()"
+			>
+				<mat-icon>password</mat-icon>
+				<span>Change Password</span>
+			</button>
+
+			<button
+				mat-menu-item
+				(click)="logout()"
+			>
+				<mat-icon>logout</mat-icon>
+				<span>Logout</span>
+			</button>
+		</mat-menu>
+	</div>
+</mat-toolbar>
+
+<!-- SideNav -->
+<mat-sidenav-container class="sidenav-container">
+	<mat-sidenav
+		#drawer
+		class="sidenav"
+		opened="true"
+		fixedInViewport="true"
+		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+		[mode]="(isHandset$ | async) ? 'push' : 'side'"
+	>
+		<mat-nav-list>
+			<div class="logo-div">
+				<img
+					routerLink="/"
+					class="logo"
+					src="/images/logo.png"
+					alt="Logo"
+				/>
+			</div>
+			<a
+				*ngFor="let navigation of navigations"
+				mat-list-item
+				routerLink="na"
+				>{{ navigation.title }}</a
+			>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<div class="page-content">
+			<router-outlet></router-outlet>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>

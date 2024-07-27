@@ -1,0 +1,51 @@
+<section
+	*ngIf="isLoggedIn && isNotificationPanelOpen"
+	class="notification-container"
+>
+	<div
+		class="left"
+		(click)="toggleNotification()"
+	></div>
+
+	<div class="right">
+		<div class="header">
+			<div>Notifications (<span>100</span>)</div>
+			<mat-icon
+				color="accent"
+				(click)="toggleNotification()"
+				>close</mat-icon
+			>
+		</div>
+		<mat-divider></mat-divider>
+
+		<div class="notification-list">
+			<div class="notification">
+				<mat-icon color="primary">notifications</mat-icon>
+				<div class="notificaiton-info">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Tempore, corrupti.
+					</p>
+					<div class="date">
+						<p>16/05/2022 | 6:10PM</p>
+					</div>
+				</div>
+			</div>
+
+			<mat-divider></mat-divider>
+
+			<div class="notification">
+				<mat-icon color="primary">notifications</mat-icon>
+				<div class="notificaiton-info">
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Tempore, corrupti.
+					</p>
+					<div class="date">
+						<p>16/05/2022 | 6:10PM</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

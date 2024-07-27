@@ -5,11 +5,11 @@ import {
 	OnInit,
 } from '@angular/core';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { QuickPanelComponent } from '../quick-panel/quick-panel.component';
 import { ChatPanelComponent } from '../chat-panel/chat-panel.component';
 import { navigations } from '../../navigations/navigations';
 import { routes } from '../../navigations/routes-lazy-loaded-modules';
 import { Routes } from '@angular/router';
+import { NotificationPanelComponent } from '../notification-panel/notification-panel.component';
 
 @Component({
 	selector: 'app-mother-component',
@@ -18,7 +18,7 @@ import { Routes } from '@angular/router';
 })
 export class RootComponent implements OnInit, OnDestroy {
 	toolbarComponent: any = null;
-	quickPanelComponent: any = null;
+	notificationPanelComponent: any = null;
 	chatPanelComponent: any = null;
 
 	navigations: any = [];
@@ -43,8 +43,8 @@ export class RootComponent implements OnInit, OnDestroy {
 	resolveRequiredComponents() {
 		this.toolbarComponent =
 			this.cfr.resolveComponentFactory(ToolbarComponent);
-		this.quickPanelComponent =
-			this.cfr.resolveComponentFactory(QuickPanelComponent);
+		this.notificationPanelComponent =
+			this.cfr.resolveComponentFactory(NotificationPanelComponent);
 		this.chatPanelComponent =
 			this.cfr.resolveComponentFactory(ChatPanelComponent);
 	}
