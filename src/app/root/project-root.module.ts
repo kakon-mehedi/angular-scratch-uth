@@ -5,6 +5,7 @@ import { MainComponent } from './components/main/main.componnet';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ChatPanelComponent } from './components/chat-panel/chat-panel.component';
 import { QuickPanelComponent } from './components/quick-panel/quick-panel.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
 	declarations: [
@@ -14,7 +15,7 @@ import { QuickPanelComponent } from './components/quick-panel/quick-panel.compon
 		ChatPanelComponent,
 		QuickPanelComponent,
 	],
-	imports: [BrowserModule],
+	imports: [BrowserModule, SharedModule],
 	exports: [],
 	providers: [],
 	bootstrap: [RootComponent],
