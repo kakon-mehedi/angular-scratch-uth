@@ -25,13 +25,15 @@
 			align-items: center;
 			font-size: 16px;
 			color: $text-N800;
-
-			.mat-icon {
-				cursor: pointer;
-			}
 		}
 
 		.notification-list {
+			.notification-icon {
+				min-width: 60px;
+				.mat-icon {
+					cursor: pointer !important;
+				}
+			}
 			.notification {
 				padding: 18px;
 				display: flex;

@@ -80,5 +80,9 @@ export class ToolbarComponent implements OnInit, OnDestroy {
 		// this.router.navigate([url]);
 	}
 
+	closeNotificationPanel() {
+		this.isNotificationPanelOpen = false;
+	}
+
     onSignOut() {}
 }

@@ -23,4 +23,8 @@ export class NotificationPanelComponent {
     toggleNotification() {
 
     }
+
+    closeNotificationPanel() {
+        this.close.emit();
+    }
 }

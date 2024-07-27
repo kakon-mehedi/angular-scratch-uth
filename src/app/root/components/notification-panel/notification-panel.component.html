@@ -1,7 +1,4 @@
-<section
-	*ngIf="isLoggedIn && isNotificationPanelOpen"
-	class="notification-container"
->
+<section class="notification-container">
 	<div
 		class="left"
 		(click)="toggleNotification()"
@@ -12,7 +9,7 @@
 			<div>Notifications (<span>100</span>)</div>
 			<mat-icon
 				color="accent"
-				(click)="toggleNotification()"
+				(click)="closeNotificationPanel()"
 				>close</mat-icon
 			>
 		</div>
@@ -20,7 +17,9 @@
 
 		<div class="notification-list">
 			<div class="notification">
-				<mat-icon color="primary">notifications</mat-icon>
+				<div class="notification-icon">
+					<mat-icon color="primary">notifications</mat-icon>
+				</div>
 				<div class="notificaiton-info">
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -35,7 +34,9 @@
 			<mat-divider></mat-divider>
 
 			<div class="notification">
-				<mat-icon color="primary">notifications</mat-icon>
+				<div class="notification-icon">
+					<mat-icon color="primary">notifications</mat-icon>
+				</div>
 				<div class="notificaiton-info">
 					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
