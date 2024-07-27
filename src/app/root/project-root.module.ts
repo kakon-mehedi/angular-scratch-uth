@@ -6,6 +6,8 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ChatPanelComponent } from './components/chat-panel/chat-panel.component';
 import { QuickPanelComponent } from './components/quick-panel/quick-panel.component';
 import { SharedModule } from '../../shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { routes } from './navigations/routes-lazy-loaded-modules';
 
 @NgModule({
 	declarations: [
@@ -15,7 +17,7 @@ import { SharedModule } from '../../shared/shared.module';
 		ChatPanelComponent,
 		QuickPanelComponent,
 	],
-	imports: [BrowserModule, SharedModule],
+	imports: [BrowserModule, SharedModule, RouterModule.forRoot(routes)],
 	exports: [],
 	providers: [],
 	bootstrap: [RootComponent],

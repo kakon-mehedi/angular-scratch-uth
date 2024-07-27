@@ -7,18 +7,18 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+	providedIn: 'root',
+})
 export class FeatureCanActivate implements CanActivate {
 	constructor(private _router: Router) {}
-	authorizedMember = false;
+	authorizedMember = true;
 
 	canActivate(
-		route: ActivatedRouteSnapshot,
+		currentRoute: ActivatedRouteSnapshot,
 		nextState: RouterStateSnapshot
 	): Observable<boolean> | Promise<boolean> | boolean {
-		if (this.authorizedMember) {
-			this._router.navigate([nextState.url]);
-		}
+		if (!this.authorizedMember) return false;
 		return true;
 	}
 }
