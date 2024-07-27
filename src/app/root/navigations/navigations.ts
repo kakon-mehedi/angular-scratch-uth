@@ -16,6 +16,43 @@ export const navigations = [
 				url: '/employee-list',
 				isVisible: true,
 			},
+
+			{
+				id: 'HrList',
+				title: 'HR List',
+				translate: 'HR_LIST',
+				type: 'item',
+				url: '/hr-list',
+				isVisible: true,
+			},
+
+			{
+				id: 'PerformanceMangement',
+				title: 'Performance Management',
+				translate: 'PERFORMANCE_MANAGEMENT',
+				type: 'item',
+				url: '',
+				isVisible: true,
+				children: [
+					{
+						id: 'Quiz',
+						title: 'Quiz',
+						translate: 'QUIZ',
+						type: 'item',
+						url: '',
+						isVisible: true,
+					},
+
+					{
+						id: 'Evaluation',
+						title: 'Evaluation',
+						translate: 'Evaluation',
+						type: 'item',
+						url: '',
+						isVisible: true,
+					},
+				],
+			},
 		],
 	},
 

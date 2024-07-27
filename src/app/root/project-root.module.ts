@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './navigations/routes-lazy-loaded-modules';
 import { NotificationPanelComponent } from './components/notification-panel/notification-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
 	declarations: [
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		CommonModule,
 		SharedModule,
 		RouterModule.forRoot(routes),
 	],

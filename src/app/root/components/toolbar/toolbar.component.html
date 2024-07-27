@@ -1,5 +1,8 @@
 <!-- Notification Panel -->
-<app-notification-panel *ngIf="isNotificationPanelOpen" (close)="closeNotificationPanel()"></app-notification-panel>
+<app-notification-panel
+	*ngIf="isNotificationPanelOpen"
+	(close)="closeNotificationPanel()"
+></app-notification-panel>
 
 <mat-toolbar class="mat-toolbar main-toolbar mat-elevation-z2">
 	<button
@@ -113,12 +116,10 @@
 					alt="Logo"
 				/>
 			</div>
-			<a
-				*ngFor="let navigation of navigations"
-				mat-list-item
-				routerLink="na"
-				>{{ navigation.title }}</a
-			>
+
+			<ng-container *ngFor="let navigation of navigations">
+				<app-nav-item [navigation]="navigation"></app-nav-item>
+			</ng-container>
 		</mat-nav-list>
 	</mat-sidenav>
 	<mat-sidenav-content>
