@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Routes } from '@angular/router';
 
 @Component({
 	selector: 'main-component',
@@ -10,12 +11,17 @@ export class MainComponent {
     navigations: any[] = [];
 
     @Input()
-    routes: any[] = []
+    routeList: Routes = []
 
     @Input()
     quickPanelComponent: any;
 
+    @Input()
+    toolbarComponent: any;
 
+
+    @Input()
+    chatPanelComponent: any;
     
 
 
