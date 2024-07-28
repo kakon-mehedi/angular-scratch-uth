@@ -34,29 +34,27 @@
 	#multiNavItem
 	let-nav="navigationDetails"
 >
-	<mat-accordion>
-		<mat-expansion-panel>
-			<mat-expansion-panel-header>
-				<mat-panel-title> {{ nav.title }}</mat-panel-title>
-			</mat-expansion-panel-header>
+	<mat-expansion-panel>
+		<mat-expansion-panel-header>
+			<mat-panel-title> {{ nav.title }}</mat-panel-title>
+		</mat-expansion-panel-header>
 
-			<ng-container *ngFor="let childNav of nav.children">
-                <ng-container
-                    *ngIf="!childNav?.children?.length"
-                    [ngTemplateOutlet]="singleNavItem"
-                    [ngTemplateOutletContext]="{
-                        navigationDetails: childNav
-                    }"
-                ></ng-container>
+		<ng-container *ngFor="let childNav of nav.children">
+			<ng-container
+				*ngIf="!childNav?.children?.length"
+				[ngTemplateOutlet]="singleNavItem"
+				[ngTemplateOutletContext]="{
+					navigationDetails: childNav
+				}"
+			></ng-container>
 
-                <ng-container
-                    *ngIf="childNav?.children?.length > 0"
-                    [ngTemplateOutlet]="multiNavItem"
-                    [ngTemplateOutletContext]="{
-                        navigationDetails: childNav
-                    }"
-                ></ng-container>
-            </ng-container>
-		</mat-expansion-panel>
-	</mat-accordion>
+			<ng-container
+				*ngIf="childNav?.children?.length > 0"
+				[ngTemplateOutlet]="multiNavItem"
+				[ngTemplateOutletContext]="{
+					navigationDetails: childNav
+				}"
+			></ng-container>
+		</ng-container>
+	</mat-expansion-panel>
 </ng-template>
