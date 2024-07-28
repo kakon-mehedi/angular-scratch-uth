@@ -1,75 +1,62 @@
-<ng-container *ngIf="navigation.children.length > 0">
-	<a
-		mat-list-item
-		routerLink="na"
-	>
-		{{ navigation.title }}
-	</a>
-
-	<div class="child-nav">
-		<ng-container
-			[ngTemplateOutlet]="recursiveNavItem"
-			[ngTemplateOutletContext]="{
-				navigationDetails: navigation.children
-			}"
-		></ng-container>
-	</div>
+<ng-container *ngIf="!navigation?.children?.length">
+	<ng-container
+		[ngTemplateOutlet]="singleNavItem"
+		[ngTemplateOutletContext]="{
+			navigationDetails: navigation
+		}"
+	></ng-container>
 </ng-container>
 
-<ng-container *ngIf="!navigation.children.length">
-	<a
-		mat-list-item
-		routerLink="navigation.url"
-	>
-		{{ navigation.title }}
-	</a>
+<ng-container *ngIf="navigation?.children?.length > 0">
+	<ng-container
+		[ngTemplateOutlet]="multiNavItem"
+		[ngTemplateOutletContext]="{
+			navigationDetails: navigation
+		}"
+	></ng-container>
 </ng-container>
 
-<!-- Calling Nav Item Recursively For child routes -->
+<!-- Single Nav Template -->
 <ng-template
-	#recursiveNavItem
+	#singleNavItem
 	let-nav="navigationDetails"
 >
-	<ng-container *ngIf="nav?.children?.length > 0">
-		<a
-			mat-list-item
-			routerLink="na"
-		>
-			{{ nav.title }}
-		</a>
+	<a
+		mat-list-item
+		routerLink="nav.url"
+	>
+		{{ nav.title }}
+	</a>
+</ng-template>
 
-		<div
-			class="child-nav"
-			*ngIf="nav?.children?.length > 0"
-		>
-			<ng-container
-				[ngTemplateOutlet]="recursiveNavItem"
-				[ngTemplateOutletContext]="{ navigationDetails: nav.children }"
-			></ng-container>
-		</div>
-	</ng-container>
+<!-- Multi Nav Template -->
+<ng-template
+	#multiNavItem
+	let-nav="navigationDetails"
+>
+	<mat-accordion>
+		<mat-expansion-panel>
+			<mat-expansion-panel-header>
+				<mat-panel-title> {{ nav.title }}</mat-panel-title>
+			</mat-expansion-panel-header>
 
-	<ng-container *ngIf="!nav?.children?.length">
-		<ng-container *ngFor="let item of nav">
-			<ng-container *ngIf="item?.children?.length > 0">
-				<div class="child-nav">
-					<ng-container
-						[ngTemplateOutlet]="recursiveNavItem"
-						[ngTemplateOutletContext]="{
-							navigationDetails: item.children
-						}"
-					></ng-container>
-				</div>
-			</ng-container>
+			<ng-container *ngFor="let childNav of nav.children">
+                <ng-container
+                    *ngIf="!childNav?.children?.length"
+                    [ngTemplateOutlet]="singleNavItem"
+                    [ngTemplateOutletContext]="{
+                        navigationDetails: childNav
+                    }"
+                ></ng-container>
 
-			<ng-container *ngIf="!item?.children?.length">
-				<a
-					mat-list-item
-					routerLink="nav.url"
-				>
-					{{ item.title }}
-				</a>
-			</ng-container>
-		</ng-container>
-	</ng-container>
+                <ng-container
+                    *ngIf="childNav?.children?.length > 0"
+                    [ngTemplateOutlet]="multiNavItem"
+                    [ngTemplateOutletContext]="{
+                        navigationDetails: childNav
+                    }"
+                ></ng-container>
+            </ng-container>
+		</mat-expansion-panel>
+	</mat-accordion>
 </ng-template>
