@@ -1,0 +1,21 @@
+<!-- <main>
+	<h1>Structural Directive</h1>
+	<section *hideAfter="5000 as time; then placeholder; let counter=counterValFromContext">
+		<h2>Temporary Content</h2>
+		<p>This layout will be disapper in {{time}} seconds</p>
+        <p>Disappers in {{counter}}</p>
+	</section>
+</main>
+
+<ng-template #placeholder let-duration="hideAfter" let-ownerName="createdByFromContext" let-position="designationFromContext">
+	<section>
+		<h2>Placeholder</h2>
+		<p>This is placeholder content is avaialbe after {{duration}} seconds</p>
+        <p>{{ownerName}}</p>
+        <p>{{position}}</p>
+	</section>
+</ng-template> -->
+
+<!-- As we are not initalized let student variable explicitly, so this student variable will get implict binding from the context object $implicit prop value -->
+
+<p *ngForKakon="let student of students"> {{student.name }}</p>
