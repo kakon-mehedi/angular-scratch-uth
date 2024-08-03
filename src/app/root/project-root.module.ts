@@ -10,9 +10,6 @@ import { routes } from './navigations/routes-lazy-loaded-modules';
 import { NotificationPanelComponent } from './components/notification-panel/notification-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-import { Parent } from './components/signals/parent/parent';
-import { Child } from './components/signals/child/child';
-import { StandaloneTestComponent } from './components/signals/test-standalone/standalone';
 
 @NgModule({
 	declarations: [
@@ -21,7 +18,6 @@ import { StandaloneTestComponent } from './components/signals/test-standalone/st
 		ToolbarComponent,
 		ChatPanelComponent,
 		NotificationPanelComponent,
-		Parent
 	],
 	imports: [
 		BrowserModule,
@@ -29,7 +25,6 @@ import { StandaloneTestComponent } from './components/signals/test-standalone/st
 		CommonModule,
 		SharedModule,
 		RouterModule.forRoot(routes),
-		StandaloneTestComponent
 	],
 	exports: [],
 	providers: [],
