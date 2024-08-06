@@ -1,46 +1,37 @@
-import { Component } from '@angular/core';
-import { AddRemoveTextPipe } from '../../custom-pipes/add-rmv-text.pipe';
-import { HightlightDirective } from '../../custom-directives/highlight.directive';
 import { CommonModule } from '@angular/common';
-import { NgIfKakonDirective } from '../../custom-directives/ngIf-kakon.directive';
-import { NgForKakonDirective } from '../../custom-directives/ngforkakon.directive';
-import { HideAfterDirective } from '../../custom-directives/hide-after.directive';
-import { MultipleInputDirective } from '../../custom-directives/test-directives';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-test-standalone',
 	templateUrl: './standalone.html',
+	styleUrls: ['./standalone.scss'],
 	standalone: true,
-	imports: [
-		AddRemoveTextPipe,
-		HightlightDirective,
-		CommonModule,
-		NgIfKakonDirective,
-		NgForKakonDirective,
-		HideAfterDirective,
-		MultipleInputDirective,
-	],
-})
-export class StandaloneTestComponent {
-	color = '';
-
-	user = {
-		name: 'kakon',
-		age: 20,
-	};
-
-	students = [
-		{
-			id: 1,
-			name: 'kakon',
-		},
-		{
-			id: 2,
-			name: 'mehedi',
-		},
-	];
-
-	onBgRed() {
-		alert('bg laal ho geya');
+	imports: [CommonModule],
+	host: {
+		'[class]': `isValid ? 'valid-class' : 'invalid-class'`,
+		'id': 'kakonId',
+		'kakonAttribute': 'KakonAttributeClass'
 	}
+})
+export class StandaloneTestComponent implements OnInit {
+	isValid: boolean = false;
+
+	info = {
+		userName: 'Kakon Mehedi',
+		age: 20
+	}
+
+	// @HostBinding('class.test-class') showTestClass: boolean = false;
+	// @HostBinding('class.danger') canApplyDangerClass: boolean = false;
+
+	// @HostBinding('style.backgroundColor') defaultBg: string = 'teal';
+	// @HostBinding('style.padding') defaultPadding: string = '24px';
+	
+	// @HostBinding('attr.title') title: string = 'Kota Chai na'
+
+	ngOnInit(): void {
+		// this.showTestClass = true;
+		// if (!this.isValid) this.canApplyDangerClass = true; 
+	}
+
 }

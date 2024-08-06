@@ -1,5 +1,4 @@
 import { Directive, Input, OnChanges, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
-import { StandaloneTestComponent } from '../standalone';
 
 @Directive({
 	selector: '[ngifKakon]',
@@ -9,7 +8,7 @@ export class NgIfKakonDirective implements OnChanges {
 	@Input() ngifKakon: any;
 
 	constructor(
-		private _templateRef: TemplateRef<StandaloneTestComponent>,
+		private _templateRef: TemplateRef<any>,
 		private _vcr: ViewContainerRef
 	) {}
 

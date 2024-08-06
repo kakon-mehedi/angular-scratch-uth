@@ -41,6 +41,14 @@
 							{
 								"bundleName": "polyfill-webcomp",
 								"input": "node_modules/@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce-pf.js"
+							},
+							"/scripts/script1.js",
+
+							"/scripts/script2.js",
+
+							{
+								"bundleName": "S3-Bundl-name-from-Angular-json-file",
+								"input": "/scripts/script3.js"
 							}
 						],
 						"main": "src/entryFile.ts"

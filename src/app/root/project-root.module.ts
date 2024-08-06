@@ -10,6 +10,7 @@ import { routes } from './navigations/routes-lazy-loaded-modules';
 import { NotificationPanelComponent } from './components/notification-panel/notification-panel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { StandaloneTestComponent } from '../indepth-learning/components/test-standalone/standalone';
 
 @NgModule({
 	declarations: [
@@ -25,6 +26,7 @@ import { CommonModule } from '@angular/common';
 		CommonModule,
 		SharedModule,
 		RouterModule.forRoot(routes),
+		StandaloneTestComponent,
 	],
 	exports: [],
 	providers: [],
